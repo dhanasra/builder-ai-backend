@@ -1,0 +1,10 @@
+{
+    "en": {
+        "S001": "Created successfully!",
+        "S002": "Fetched successfully!",
+        "S003": "Deleted successfully!",
+        "S004": "Updated successfully!",
+
+        "E001": "Something went wrong. Try again later!."
+    }
+}

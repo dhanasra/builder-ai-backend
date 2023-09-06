@@ -1,0 +1,64 @@
+service: builder-ai-backend
+frameworkVersion: '3'
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 4000
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  timeout: 30
+
+functions:
+  auth:
+    handler: ./handlers/auth.handler
+    events:
+      - http:
+          path: /authenticate
+          method: POST
+          cors: true
+  parser:
+    handler: ./handlers/parser.handler
+    events:
+      - http:
+          path: /parse-pdf
+          method: POST
+          cors: true
+  resume:
+    handler: ./handlers/resume.handler
+    events:
+      - http:
+          path: /resume
+          method: POST
+          cors: true
+      - http:
+          path: /resume
+          method: PUT
+          cors: true
+      - http:
+          path: /resume
+          method: DELETE
+          cors: true
+      - http:
+          path: /resume
+          method: GET
+          cors: true
+      - http:
+          path: /resumes
+          method: GET
+          cors: true
+      - http:
+          path: /user-resumes
+          method: GET
+          cors: true
+  sites:
+    handler: ./handlers/sites.handler
+    events:
+      - http:
+          path: /site
+          method: POST
+          cors: true
