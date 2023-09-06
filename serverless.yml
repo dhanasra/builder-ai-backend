@@ -21,6 +21,13 @@ functions:
           path: /authenticate
           method: POST
           cors: true
+  token:
+    handler: ./handlers/token.handler
+    events:
+      - http:
+          path: /accessToken
+          method: POST
+          cors: true
   parser:
     handler: ./handlers/parser.handler
     events:
